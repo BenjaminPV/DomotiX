@@ -30,11 +30,11 @@ void readTemp(){
   tempSensor.requestTemperatures();       // send the command to get temperatures
   temp = tempSensor.getTempCByIndex(0);  // read temperature in Celsius
   
-
+  /*
   Serial.print("Temperature: ");
   Serial.print(temp);    // print temperature
   Serial.println("°C");
- 
+  */
 
   delay(500);
 }
