@@ -18,14 +18,16 @@ void setup()
 
 void loop()
 {
-  readTemp();
-
+  ReadTemp();
+  
   
 }
 
+void SendToMotheerBoard(){
+  
+}
 
-
-void readTemp(){
+void ReadTemp(){
   
   tempSensor.requestTemperatures();       // send the command to get temperatures
   temp = tempSensor.getTempCByIndex(0);  // read temperature in Celsius
