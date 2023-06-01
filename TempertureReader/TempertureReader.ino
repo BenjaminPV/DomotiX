@@ -1,20 +1,13 @@
-/*
- * Created by ArduinoGetStarted.com
- *
- * This example code is in the public domain
- *
- * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-temperature-sensor
- */
 
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-const int SENSOR_PIN = 13; // Arduino pin connected to DS18B20 sensor's DQ pin
+const int sensorPin = 13; //pin conection sensor
 
 OneWire oneWire(SENSOR_PIN);         // setup a oneWire instance
 DallasTemperature tempSensor(&oneWire); // pass oneWire to DallasTemperature library
 
-float tempCelsius;    // temperature in Celsius
+float temp;    // temperature
 
 
 void setup()
@@ -25,12 +18,21 @@ void setup()
 
 void loop()
 {
-  tempSensor.requestTemperatures();             // send the command to get temperatures
-  tempCelsius = tempSensor.getTempCByIndex(0);  // read temperature in Celsius
+  readTemp();
+
+  
+}
+
+
+
+void readTemp(){
+  
+  tempSensor.requestTemperatures();       // send the command to get temperatures
+  temp = tempSensor.getTempCByIndex(0);  // read temperature in Celsius
   
 
   Serial.print("Temperature: ");
-  Serial.print(tempCelsius);    // print the temperature in Celsius
+  Serial.print(temp);    // print temperature
   Serial.println("°C");
  
 
